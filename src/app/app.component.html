@@ -1,0 +1,106 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+  
+    <div class="jumbotron text-center">
+      <div class="row">
+          <div class="col-sm-6">
+            <h3>Product Details</h3>
+            <form>
+              <input type = "text" class="form-control" placeholder="Product name" [(ngModel)]="product"  #pname name='p'> 
+              <br/>
+              <input type = "text" class="form-control" placeholder="price" [(ngModel)]="pricea"  #price name='pr'>
+              <br/>
+              <input type = "text" class="form-control" placeholder="quantity" [(ngModel)]="quantity" #qty name='q'>
+              <br/>
+              <br/>   
+              <input type= "submit" (click)="adddata(pname.value,price.value,qty.value)" class="btn btn-dark" > 
+            </form> 
+          </div>
+          <div class="col-sm-6">
+            <br/>
+            <br/>
+            <table class="table table-dark table-bordered table-hover">
+              <thead>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                
+              </thead>
+              <tbody>
+                <tr *ngFor="let n of productdata">
+                  <td>{{n.productname}}</td>
+                  <td>{{n.productprice}}</td>
+                  <td>{{n.productquantity}}</td>
+                  <td>{{n.total}}</td>
+                  
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+    
+    <div class="jumbotron text-center">
+      <div class="row">
+        <div class="col-sm-6">
+            <!-- class="rounded-circle"  class="img-thumbnail" class="rounded" -->
+            <img src="./assets/youeconomymainimage.jpg" [ngClass]="img" alt="Cinque Terre" width="304" height="236">
+            <br/>
+            <br/>
+            <button (click)="imgtype1()" class="btn btn-dark">Rounded</button>&nbsp;
+            <button (click)="imgtype2()" class="btn btn-dark">Circle</button>&nbsp;
+            <button (click)="imgtype3()" class="btn btn-dark">Thumbnail</button>
+        </div>
+        <div class="col-sm-6">
+            <p [ngStyle]="changestyle()">
+                1. Tell yourself there is nothing to fear except fear itself.
+]                Fear of punishment or rejection is why most people hesitate to ask for what they want.
+                They are afraid that going out on an emotional limb will result in humiliation if they fail.
+                Strategy: Before making your request, take plenty of time to remind yourself of the importance of what you are asking for.
+                Tell yourself the only thing that matters is whether or not you are making good and well-articulated points.
+                By focusing on the merits of your request, not on how you will appear to others, many of your initial fears will fade away.
+            </p>
+            <label>Text Color :</label>&nbsp;<input type="color" [(ngModel)]="tclr">&nbsp;
+            <label>Background Color :</label>&nbsp;<input type="color" [(ngModel)]="bclr">
+            <br/>
+            <input type="text" class="form-control" placeholder="Font Family" [(ngModel)]="ff">
+            <input type="text" class="form-control" placeholder="Font Style" [(ngModel)]="fs">
+            
+        </div>
+      </div>
+    </div>
+
+    <div class="jumbotron">
+    
+      <div>
+        <table class="table table-bordered table-hover">
+          <thead class="thead-dark">
+              <th>Name</th>
+              <th>Age</th>
+              <th>City</th>
+              <th>Gender</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let Employ of EmployeeData">
+              <td>{{Employ.Name}}</td>
+              <td>{{Employ.Age}}</td>
+              <td>{{Employ.City}}</td>
+              <td>{{Employ.Gender}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+      
+  
+  </body>
